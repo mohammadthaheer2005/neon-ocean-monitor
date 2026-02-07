@@ -27,14 +27,21 @@ from src.report_generator import MissionReportGenerator
 import os
 import sys
 
-# AUTO-LOCK SYSTEM: Checks for local license key
+# AUTO-LOCK SYSTEM: Checks for local license key or secret
 def verify_access():
     try:
-        if not os.path.exists("license.key"):
-            return False
-        with open("license.key", "r") as f:
-            key = f.read().strip()
-            if key == "NEON-OCEAN-OFFICIAL-LICENSE-KEY-X792":
+        # 1. Check for local file (PC usage)
+        if os.path.exists("license.key"):
+            with open("license.key", "r") as f:
+                if f.read().strip() == "NEON-OCEAN-OFFICIAL-LICENSE-KEY-X792":
+                    return True
+        
+        # 2. Check Streamlit Secrets (Cloud usage)
+        if "LICENSE_KEY" in st.secrets:
+            if st.secrets["LICENSE_KEY"] == "NEON-OCEAN-OFFICIAL-LICENSE-KEY-X792":
+                return True
+        elif "general" in st.secrets and "LICENSE_KEY" in st.secrets["general"]:
+            if st.secrets["general"]["LICENSE_KEY"] == "NEON-OCEAN-OFFICIAL-LICENSE-KEY-X792":
                 return True
     except:
         return False
