@@ -1,0 +1,40 @@
+
+# 🚀 How to Publish Neon Ocean as a Real Website
+
+Follow these steps to get your own unique link (e.g., `neon-ocean.streamlit.app`).
+
+## Step 1: Create a GitHub Repository
+1.  Go to **[github.com/new](https://github.com/new)**.
+2.  **Repository Name**: `neon-ocean-monitor` (or any name you like).
+3.  **Public/Private**: Choose **Public** (easiest) or Private.
+4.  **Do NOT** check "Add a README", ".gitignore", or "license". (We already have them).
+5.  Click **Create repository**.
+
+## Step 2: Push Your Code
+copy the commands below and paste them into your **Terminal/Command Prompt**:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/neon-ocean-monitor.git
+git branch -M main
+git push -u origin main
+```
+*(Replace `YOUR_USERNAME` with your actual GitHub username!)*
+
+## Step 3: Deploy to Streamlit Cloud
+1.  Go to **[share.streamlit.io](https://share.streamlit.io/)**.
+2.  Click **New app**.
+3.  Select **Use existing repo**.
+4.  **Repository**: `YOUR_USERNAME/neon-ocean-monitor`.
+5.  **Branch**: `main`.
+6.  **Main file path**: `app/main.py`.
+7.  **Click "Deploy!"**.
+
+## Step 4: Add Your Secrets (IMPORTANT)
+Your app will fail at first because it needs API keys.
+1.  On your deployed app, click **Manage app** (bottom right) -> **Results** -> **Settings** -> **Secrets**.
+2.  Copy the contents of `secrets.toml.example` from your project folder.
+3.  Paste them into the Secrets box.
+4.  Fill in your real API keys.
+5.  Click **Save**.
+
+**🎉 DONE! Your app is now online 24/7!**

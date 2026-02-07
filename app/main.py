@@ -20,6 +20,38 @@ from src.hybrid_model import HybridAlgaeModel
 from src.groq_agent import GroqOceanAgent
 from src.report_generator import MissionReportGenerator
 
+
+
+
+# --- SECURITY PROTOCOL ---
+import os
+import sys
+
+# AUTO-LOCK SYSTEM: Checks for local license key
+def verify_access():
+    try:
+        if not os.path.exists("license.key"):
+            return False
+        with open("license.key", "r") as f:
+            key = f.read().strip()
+            if key == "NEON-OCEAN-OFFICIAL-LICENSE-KEY-X792":
+                return True
+    except:
+        return False
+    return False
+
+if not verify_access():
+    st.set_page_config(page_title="ACCESS DENIED", page_icon="🚫", layout="centered")
+    st.error("🚫 SYSTEM LOCKED: UNAUTHORIZED ACCESS DETECTED")
+    st.markdown("""
+    ### 🔒 Security Alert
+    **NeonOcean V5.0** is protected software.
+    No valid `license.key` was found on this system.
+    
+    *Access to the Bio-Digital Twin has been disabled.*
+    """)
+    st.stop()
+
 # --- CONFIGURATION ---
 st.set_page_config(page_title="NeonOcean V5.0: Ultimate", page_icon="🌊", layout="wide")
 st.markdown("""
@@ -40,6 +72,7 @@ st.markdown("""
 with st.sidebar:
     st.title("🌊 NEON OCEAN V5.0")
     st.caption("Bio-Digital Twin | Command Center")
+    st.markdown("**Developed by: Mohammad Thaheer**")
     
     # --- VIEW MODE SELECTOR ---
     view_mode = st.radio("📡 SELECT MODE:", ["Bio-Digital Twin", "Live Satellite Feed"], index=0)

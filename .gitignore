@@ -15,3 +15,6 @@ __pycache__/
 # Streamlit
 .streamlit/
 !/.streamlit/config.toml
+
+# License Key (Local Only)
+license.key
