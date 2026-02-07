@@ -1,0 +1,17 @@
+
+# Environment Variables (API Keys)
+.env
+.streamlit/secrets.toml
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
+!/.streamlit/config.toml

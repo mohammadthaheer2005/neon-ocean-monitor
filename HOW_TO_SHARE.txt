@@ -1,0 +1,50 @@
+
+# 🌍 How to Share Neon Ocean with the World
+
+Follow these 3 simple steps to let anyone access your app.
+
+## Step 1: Start the App (HOST)
+1. Double-click **`run_neon_ocean.bat`**.
+   - This starts your Streamlit server locally.
+   - Keep this window **OPEN**.
+
+## Step 2: Go Online (HOST)
+1. Double-click **`share_online.bat`**.
+2. A black window will open.
+3. It will show you a **Tunnel Password** (e.g., `34.12.34.56`). **COPY THIS.**
+4. It will show you a **URL** (e.g., `https://funny-cat-99.loca.lt`). **COPY THIS.**
+   - Keep this window **OPEN** too.
+
+### ❓ Which Link Should I Send?
+- **Friend in YOUR House (Same Wi-Fi)**: Send the **Network URL** (e.g., `http://192.168.1.13:8501`).
+- **Friend Anywhere Else (Different Wi-Fi/Mobile Data)**: Send the **Tunnel URL** (e.g., `https://funny-cat-99.loca.lt`).
+
+## Step 3: Share (YOU -> THEM)
+Send the **URL** (and **Tunnel Password** if using Step 2) to your friend.
+
+---
+
+# 👤 Instructions for your Friend (GUEST)
+*(Copy and paste this message to them)*
+
+> Hey! Check out my project Neon Ocean running live.
+> 
+> 1. Click this link: [INSERT URL HERE]
+> 2. Pass the "Tunnel Password" check by entering: [INSERT PASSWORD HERE]
+> 3. Click "Click to Submit". 
+> 
+> That's it!
+
+---
+
+# 💻 Advanced: Run with Commands (Process for Windows/Mac/Linux)
+If you prefer using the terminal command line instead of double-clicking files:
+
+1.  **Open Terminal/Command Prompt**.
+2.  **Navigate to project folder**: `cd "C:\Users\moham\.gemini\antigravity\scratch"`
+3.  **Get Tunnel Password (Public IP)**:
+    - **Command Prompt**: `curl -4 icanhazip.com`
+    - **PowerShell**: `curl.exe -4 icanhazip.com`
+4.  **Get Tunnel URL**:
+    - Command: `npx localtunnel --port 8501`
+    - (Wait for "your url is: https://..." to appear)
